@@ -27,6 +27,7 @@ export const  authenticate  = async (req: Request, res: Response, next: NextFunc
        return next(new NotFoundError('User not found',ErrorCode.USER_NOT_FOUND,null))
     }
     res.locals.id =userExist[0].id
+    res.locals.role = userExist[0].role
     next();
 }catch(error){
     console.log("hahaha")
