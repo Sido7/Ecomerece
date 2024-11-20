@@ -18,19 +18,20 @@ Admin
 user
 }
 
-model user{
+model User{
   id Int @id @default(autoincrement())
   name String
   email String @unique
   password String 
   role Role @default(user)
+  address Address[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   @@map("users")
 }
 
-model product{
+model Product{
   id Int @id  @default(autoincrement())
   name String
   price Float
@@ -39,4 +40,17 @@ model product{
   updatedAt DateTime @updatedAt
 
   @@map("products")
+}
+
+model Address{
+  id Int @id @default(autoincrement())
+  line1 String 
+  line2 String
+  city String
+  country String
+  pincode String
+  user User @relation(fields: [userId],references: [id])
+  userId Int 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
