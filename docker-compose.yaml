@@ -1,0 +1,22 @@
+services:
+  secondSql:
+    image: mysql:5.7
+    ports:
+      - "3310:3310"
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_DATABASE=checker
+    container_name: secondSql
+
+  myapp:
+    build: .
+    ports:
+      - "3006:3000"
+    container_name: myapp
+    depends_on:
+      - secondSql
+    
+  
+  
+
+    
