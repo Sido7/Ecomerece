@@ -9,6 +9,8 @@ import { authenticate } from "../middleware/auth.middleware";
 const route: Router = Router();
 
 route.post("/signup",validateSchema(createUserSchema), catchErrorWrapper(signUp));
+
+
 route.post("/signin",validateSchema(loginSchema), catchErrorWrapper(login));
 route.get("/me",authenticate,catchErrorWrapper(findMe))
 
