@@ -15,6 +15,7 @@ export const prismaClient = new PrismaClient({
   log: ["query", "info", "warn", "error"],
 });
 
+console.log(secrets.Port);
 app.listen(secrets.Port, () => {
   console.log("Server started on port 3000");
 });
