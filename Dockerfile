@@ -1,24 +1,15 @@
 FROM node:20
 
-
 WORKDIR /app
 
-
-COPY package*.json tsconfig.json ./
-
+COPY . /app/
 
 RUN npm install
 
-
-COPY . .
-
+RUN npm run build
 
 RUN npx prisma generate
 
-
-RUN npm run build
-
 EXPOSE 3000
 
-
-CMD ["node", "dist/server.js"]
+CMD ["node", "build/index.js"]
