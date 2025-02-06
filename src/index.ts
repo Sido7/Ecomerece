@@ -8,6 +8,11 @@ const app: Express = express();
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
+app.use(express.static('public'));
+
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/public/index.html');
+});
 app.use('/api',router)
 app.use(errorHandler)
 
