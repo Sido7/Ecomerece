@@ -39,4 +39,4 @@ jobs:
           sudo docker pull siddharth1850/web-app:latest
           sudo docker stop web-app || true
           sudo docker rm web-app || true
-          sudo docker run -d  -p 3006:3000 -e PORT=${{ secrets.PORT }} -e KEY=${{ secrets.ENCRYPT_KEY }} -e DATABASE_URL=${{ secrets.DATABASE_URL }}  siddharth1850/web-app:latest
+          sudo docker run -d  -p 3010:3000 -e PORT=${{ secrets.PORT }} -e KEY=${{ secrets.ENCRYPT_KEY }} -e DATABASE_URL=${{ secrets.DATABASE_URL }}  siddharth1850/web-app:latest
