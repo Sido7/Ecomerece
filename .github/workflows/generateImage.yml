@@ -39,4 +39,4 @@ jobs:
           sudo docker pull siddharth1850/web-app:latest
           sudo docker stop web-app || true
           sudo docker rm web-app || true
-          sudo docker run -d  -p 3006:3000 -e PORT=3000 -e KEY="justarandom1231key" -e DATABASE_URL="mysql://avnadmin:AVNS_QkclLVhwbm9WdDo1Cm-@mysql-69823db-siddharth1850-4e81.i.aivencloud.com:26317/defaultdb?ssl-mode=REQUIRED"  siddharth1850/web-app:latest
+          sudo docker run -d  -p 3006:3000 -e PORT=${{ secrets.PORT }} -e KEY=${{ secrets.ENCRYPT_KEY }} -e DATABASE_URL=${{ secrets.DATABASE_URL }}  siddharth1850/web-app:latest
