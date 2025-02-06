@@ -1,4 +1,4 @@
-FROM node:18
+FROM node:20
 
 WORKDIR /app
 
@@ -6,10 +6,8 @@ COPY . /app/
 
 RUN npm install
 
-RUN npm run build
-
 RUN npx prisma generate
 
 EXPOSE 3000
 
-CMD ["node", "build/index.js"]
+CMD ["sh", "-c", "npm run build && npm start"]
